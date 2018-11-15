@@ -22,6 +22,7 @@ CORS(app)
 
 #Changed this thing here
 #Here are some more changes
+# Imade lot of CHANGESIOVSBVSBVLESJVB
 class Firebase_Data(Resource):
 
     '''This class is used to connect to a firestore database and fetch the data from it.
