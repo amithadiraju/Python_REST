@@ -19,7 +19,10 @@ api = Api(app)
 
 #Initializing cross origin callable app
 CORS(app)
+
 #Changed this thing here
+
+# Also changed this
 class Firebase_Data(Resource):
 
     '''This class is used to connect to a firestore database and fetch the data from it.
