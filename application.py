@@ -85,5 +85,5 @@ api.add_resource(Firebase_Data, '/Firebase_Data') # Route_1
 
 if __name__ == '__main__':
      
-     # Runs on port 5002 on any server
-     app.run(port=5002)   
+     # Runs on port 8080 on any server
+     app.run(port=8080)   
