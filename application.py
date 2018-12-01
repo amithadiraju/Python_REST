@@ -19,10 +19,7 @@ api = Api(app)
 
 #Initializing cross origin callable app
 CORS(app)
-
 #Changed this thing here
-
-# Also changed this
 class Firebase_Data(Resource):
 
     '''This class is used to connect to a firestore database and fetch the data from it.
@@ -41,16 +38,21 @@ class Firebase_Data(Resource):
 
         ''' Private function to connect to fire store database'''
 
-        # Setting up credentials to connect.
+        
         '''Please replace the arguments to the call to .Certificate method with the path of 
          ServiceAccountKey.JSON file. I had the file in the same directory. So, didn't include a PATH '''
-        cred = credentials.Certificate(r'Cred.json')
 
-        # Setting up secure connection to firestore Real time database
+        # This condition makes sure that the app doesn't get initialized twice, in which case it fails
 
-        Kokomo_app = firebase_admin.initialize_app(cred, {
-            'projectId' : 'product-kokomo247'
-        })
+        # Condition to initiliaze the app only once
+        if(not len(firebase_admin._apps)):
+
+            # Setting up credentials to connect.
+            cred = credentials.Certificate(r'Cred.json')
+
+            Kokomo_app = firebase_admin.initialize_app(cred, {
+                'projectId' : 'product-kokomo247'
+                  })
 
 
         # Connecting to the firestore client
@@ -85,5 +87,5 @@ api.add_resource(Firebase_Data, '/Firebase_Data') # Route_1
 
 if __name__ == '__main__':
      
-     # Runs on port 8080 on any server
-     app.run(port=8080)   
+    
+     app.run()   
